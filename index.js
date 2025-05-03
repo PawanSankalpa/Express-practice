@@ -13,43 +13,39 @@ const port = 3000;
 app.use(morgan("tiny"));
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.get("/", (req, res) => {
-  res.sendFile(__dirname + "/public/index.html");
-});
+//create my own middleware
+function logTime(req, res, next){
+  console.log(`Time: ${new Date().toLocaleDateString()}`);
+  next();
+}
 
-app.post("/submit", (req, res) => {
-  console.log(req.body);
+app.use(logTime)
+
+// create a middleware with conditions
+function guard(req, res, next){
+  const secretKey = req.query.secrets;
+  if (secretKey === "studpidDonkey"){
+    next(); // Let him in
+  } else {
+    res.send("<h>Access denied</h1>");
+  }
+}
+
+app.get("/protected", guard, (req, res) => {
+  res.send("You are inside the secret page of the Stuupid Donkey.")
 });
+// app.get("/", (req, res) => {
+//   res.sendFile(__dirname + "/public/index.html");
+// });
+
+// app.post("/submit", (req, res) => {
+//   console.log(req.body);
+// });
 
 app.get("/", (req, res) => {
   res.send("Hey It's Pawan from the Home Page");
 });
 
-app.get("/about", (req, res) => {
-  res.send("Hey It's Pawan from the about page");
-});
-
-app.get("/contact", (req, res) => {
-  res.send("Hey It's Pawan from the contact page");
-});
-
-// other type of requests
-
-app.post("/register", (req, res) => {
-  res.sendStatus(201);
-});
-
-app.put("/user/pawan", (req, res) => {
-  res.sendStatus(200);
-});
-
-app.patch("/user/pawan", (req, res) => {
-  res.sendStatus(200);
-});
-
-app.delete("/user/pawan", (req, res) => {
-  res.sendStatus(200);
-});
 
 app.listen(port, () => {
   console.log(`We are running on the port: ${port}`);
