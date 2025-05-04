@@ -1,0 +1,71 @@
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: var(--bg);
+  color: var(--text);
+  padding: 2rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  position: relative;
+  animation: fadeIn 1.5s ease-in-out;
+}
+
+h1 {
+  font-size: 3.5rem;
+  color: var(--accent);
+  margin-bottom: 2rem;
+  text-align: center;
+  animation: popIn 1.2s ease-in-out;
+}
+
+a {
+  font-size: 1.4rem;
+  color: white;
+  background-color: var(--accent);
+  padding: 0.8rem 1.6rem;
+  text-decoration: none;
+  border-radius: var(--border-radius);
+  box-shadow: 0 5px 15px rgba(255, 105, 135, 0.3);
+  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  animation: slideUp 1s ease-in-out;
+}
+
+a:hover {
+  background-color:rgba(16, 179, 233, 0.351);
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(255, 105, 135, 0.4);
+}
+
+/* De-emphasized Paragraphs */
+.p {
+  position: absolute;
+  bottom: 3rem;
+  left: 3rem;
+  font-size: 0.9rem;
+  color: var(--text-light);
+  opacity: 0.6;
+  max-width: 500px;
+  text-align: left;
+  line-height: 1.4;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  h1 {
+    font-size: 2.2rem;
+  }
+
+  a {
+    font-size: 1.1rem;
+    padding: 0.6rem 1.2rem;
+  }
+
+  .p {
+    font-size: 0.8rem;
+    bottom: 1rem;
+    right: 1rem;
+    max-width: 200px;
+  }
+}

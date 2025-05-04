@@ -1,0 +1,14 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  animation: fadeIn 1.5s ease;
+}
+
+h1 {
+  font-size: 3rem;
+  color: var(--accent);
+  text-align: center;
+  animation: popIn 1s ease;
+}

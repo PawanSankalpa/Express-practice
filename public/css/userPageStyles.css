@@ -1,0 +1,13 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  animation: shakeIn 1.5s ease;
+}
+
+h1 {
+  font-size: 2.8rem;
+  color: #e74c3c;
+  text-align: center;
+}

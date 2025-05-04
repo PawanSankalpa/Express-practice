@@ -1,0 +1,84 @@
+:root {
+    --bg-color: #1a1a1a;
+    --primary-color: #1f1f1f;
+    --accent-color: #00bcd4;
+    --text-color: #e0e0e0;
+    --link-color: #03dac6;
+    --error-color: #ff5370;
+    --border-radius: 8px;
+    --transition: all 0.3s ease;
+    --font: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --bg: #1a1a1a;
+    --accent: #ff4d6d;
+    --text: #ffffff;
+    --text-light: #aaaaaa;
+    --border-radius: 12px;
+  }
+  
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--font);
+  }
+  
+  body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 20px;
+    transition: var(--transition);
+  }
+  
+  h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    animation: fadeIn 1s ease-out;
+  }
+  
+  a {
+    color: var(--link-color);
+    text-decoration: none;
+    font-weight: bold;
+    margin: 10px 0;
+    transition: var(--transition);
+  }
+  
+  a:hover {
+    color: var(--accent-color);
+    transform: scale(1.05);
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  @media screen and (max-width: 600px) {
+    h1 {
+      font-size: 1.5rem;
+    }
+    body {
+      padding: 10px;
+    }
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  @keyframes slideUp {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+  
+  @keyframes popIn {
+    0% { transform: scale(0.95); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+  }
+  
