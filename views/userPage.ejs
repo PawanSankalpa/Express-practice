@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/userPageStyles.css"> 
+    <!-- we don't need to send the ../public/css like that because
+     in the index.js file we have refered to the static files like css
+     public/ folder as the root so, you can just use it like this -->
+    <link rel="stylesheet" href="/css/globalStyles.css">
+    <title>User Page</title>
+</head>
+<body>
+    <h1>Hey, <%= username %> You are a urser! not the admin!</h1>
+</body>
+</html>

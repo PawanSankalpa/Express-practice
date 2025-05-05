@@ -8,6 +8,9 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const app = express();
 const port = 3000;
 
+app.set("view engine", "ejs");
+app.set("views", __dirname + "/views")
+
 app.use(morgan("tiny")); // helpful assistant that tells you everything your server is doing.
 app.use(bodyParser.urlencoded({ extended: true })); // Parses form data from the request.
 
@@ -33,7 +36,10 @@ function logIn(req, res, next) {
   if (username === adminDetails.username && password === adminDetails.password) {
     next(); //let the admin in
   } else {
-    res.sendFile(__dirname + "/public/userPage.html"); //serve the userPage
+    res.render("userPage", { username });
+    // {username: username} = {username} because the key and value are the same
+    // we don't need to show the absolute path __dirname + "public/adminPage.ejs"
+    // because ejs must be inside the views folder we just have to enter the file name.
   }
 }
 //----------------------------------------------------------------------//
@@ -48,7 +54,8 @@ app.get("/form", (req, res) => {
 
 app.post("/admin", logIn, (req, res) => {
   {
-    res.sendFile(__dirname + "/public/adminPage.html"); // serve the adminPage
+    res.render("adminPage", {username: req.body.username}) // we can't just put username here
+    // because only in the log in middleware we have the access to it directly.
   }
 });
 
